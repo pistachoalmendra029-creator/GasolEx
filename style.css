@@ -1,0 +1,652 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #203329;
+    background: #ffffff;
+    line-height: 1.6;
+}
+
+.container {
+    width: 92%;
+    max-width: 1180px;
+    margin: auto;
+}
+
+/* HEADER */
+
+.header {
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 75px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #173d2b;
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.logo-icon {
+    font-size: 29px;
+}
+
+.logo-green {
+    color: #159b54;
+}
+
+.navigation {
+    display: flex;
+    gap: 30px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #40564a;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.navigation a:hover {
+    color: #159b54;
+}
+
+/* HERO */
+
+.hero {
+    background: linear-gradient(120deg, #103c29, #159b54);
+    color: white;
+    padding: 90px 0;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.hero-tag,
+.section-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #159b54;
+    margin-bottom: 12px;
+}
+
+.hero-tag {
+    color: #b5f4ce;
+}
+
+.hero h1 {
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.12;
+    margin-bottom: 20px;
+    max-width: 800px;
+}
+
+.hero p {
+    font-size: 17px;
+    color: #e2f4e9;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.hero-button {
+    display: inline-block;
+    background: white;
+    color: #126a3b;
+    text-decoration: none;
+    font-weight: 800;
+    padding: 14px 25px;
+    border-radius: 9px;
+}
+
+.hero-button:hover {
+    background: #e7f7ed;
+}
+
+/* BUSCADOR */
+
+.search-section {
+    padding: 75px 0;
+    background: #f5f9f6;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading h2,
+.results-heading h2 {
+    color: #173d2b;
+    font-size: clamp(25px, 3vw, 34px);
+    margin-bottom: 8px;
+}
+
+.section-heading p {
+    color: #77867c;
+}
+
+.search-form {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr auto;
+    gap: 15px;
+    align-items: end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 700;
+    font-size: 13px;
+    color: #334b3c;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #dce6de;
+    border-radius: 8px;
+    background: white;
+    padding: 0 12px;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #159b54;
+}
+
+.search-button {
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    padding: 0 23px;
+    background: #159b54;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background: #087a40;
+}
+
+.location-button {
+    margin-top: 20px;
+    background: transparent;
+    color: #12854a;
+    border: 1px solid #159b54;
+    padding: 11px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.location-button:hover {
+    background: #e7f7ed;
+}
+
+.status {
+    margin-top: 14px;
+    color: #718078;
+    font-size: 13px;
+}
+
+/* RESULTADOS */
+
+.results-section {
+    padding: 75px 0;
+}
+
+.results-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.result-count {
+    background: #e8f7ed;
+    color: #087a40;
+    border-radius: 30px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.price-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 17px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: #68766d;
+}
+
+.legend-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.dot-green {
+    background: #128b48;
+}
+
+.dot-orange {
+    background: #d88716;
+}
+
+.dot-red {
+    background: #dc4141;
+}
+
+.stations-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.station-card {
+    padding: 23px;
+    border: 1px solid #e5ece7;
+    border-radius: 13px;
+    background: white;
+    cursor: pointer;
+    transition: .2s;
+    min-width: 0;
+}
+
+.station-card:hover {
+    border-color: #159b54;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,.07);
+}
+
+.station-card h3 {
+    font-size: 18px;
+    color: #173d2b;
+    margin-bottom: 8px;
+}
+
+.station-card p {
+    font-size: 13px;
+    color: #758279;
+    margin-bottom: 5px;
+    overflow-wrap: anywhere;
+}
+
+.station-price {
+    display: inline-block;
+    font-size: 25px;
+    margin: 12px 0;
+    font-weight: 800;
+}
+
+.price-cheap {
+    color: #128b48;
+}
+
+.price-medium {
+    color: #d88716;
+}
+
+.price-expensive {
+    color: #dc4141;
+}
+
+.price-unavailable {
+    color: #9ba49e;
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 55px 20px;
+    border: 1px dashed #dce6de;
+    border-radius: 14px;
+    color: #849188;
+}
+
+.empty-state span {
+    font-size: 35px;
+}
+
+.empty-state h3 {
+    color: #173d2b;
+    margin: 10px 0;
+}
+
+/* MAPA */
+
+.map-section {
+    padding: 75px 0;
+    background: #f5f9f6;
+}
+
+.map {
+    width: 100%;
+    height: 480px;
+    border-radius: 15px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* INFORMACIÓN */
+
+.info-section {
+    padding: 75px 0;
+}
+
+.info-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.feature {
+    text-align: center;
+    padding: 30px 20px;
+    background: #f5f9f6;
+    border-radius: 13px;
+}
+
+.feature span {
+    font-size: 34px;
+}
+
+.feature h3 {
+    color: #173d2b;
+    margin: 12px 0 8px;
+}
+
+.feature p {
+    font-size: 14px;
+    color: #78857d;
+}
+
+/* FOOTER */
+
+.footer {
+    background: #103c29;
+    color: white;
+    text-align: center;
+    padding: 35px 0;
+}
+
+.footer-logo {
+    justify-content: center;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.data-source {
+    font-size: 12px;
+    color: #d0e4d7;
+    max-width: 750px;
+    margin: 15px auto;
+}
+
+.copyright {
+    color: #b6d2c0;
+    font-size: 12px;
+}
+
+/* FICHA DE GASOLINERA */
+
+.station-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    background: rgba(0, 0, 0, .65);
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.station-modal.active {
+    display: flex;
+}
+
+.station-modal-content {
+    position: relative;
+    background: white;
+    width: 100%;
+    max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 60px rgba(0,0,0,.25);
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 17px;
+    border: none;
+    background: #edf4ef;
+    color: #173d2b;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+.station-detail-title {
+    padding-right: 35px;
+    color: #173d2b;
+    font-size: 24px;
+    line-height: 1.3;
+}
+
+.station-detail-address {
+    color: #78857d;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.station-detail-distance {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 6px 12px;
+    background: #e9f7ee;
+    color: #087a45;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.fuel-prices-title {
+    margin-top: 28px;
+    margin-bottom: 12px;
+    color: #173d2b;
+    font-size: 18px;
+}
+
+.fuel-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 12px;
+    border-bottom: 1px solid #edf0ed;
+    border-radius: 8px;
+}
+
+.fuel-price-row span {
+    font-size: 14px;
+    color: #45564b;
+}
+
+.fuel-price-row strong {
+    font-size: 17px;
+    white-space: nowrap;
+}
+
+.directions-button {
+    display: block;
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    background: #159b54;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.directions-button:hover {
+    background: #087a40;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+
+    .search-form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .search-button {
+        width: 100%;
+    }
+
+    .stations-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .header-content {
+        min-height: 65px;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 10px 0;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .navigation {
+        gap: 15px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .navigation a {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 65px 0;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .search-section,
+    .results-section,
+    .map-section,
+    .info-section {
+        padding: 50px 0;
+    }
+
+    .search-form {
+        grid-template-columns: 1fr;
+    }
+
+    .results-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .info-features {
+        grid-template-columns: 1fr;
+    }
+
+    .map {
+        height: 380px;
+    }
+
+    .station-modal {
+        padding: 10px;
+        align-items: flex-end;
+    }
+
+    .station-modal-content {
+        max-height: 85vh;
+        padding: 24px 19px;
+        border-radius: 20px 20px 12px 12px;
+    }
+
+    .station-detail-title {
+        font-size: 21px;
+    }
+
+    .fuel-price-row strong {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 360px) {
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .navigation {
+        gap: 8px;
+    }
+
+    .navigation a {
+        font-size: 11px;
+    }
+}

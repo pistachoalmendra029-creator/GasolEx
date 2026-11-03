@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compara precios de gasolineras cercanas y ahorra combustible con GasolEx.">
+    <title>GasolEx | Encuentra. Compara. Ahorra.</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        defer>
+    </script>
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container header-content">
+
+        <a href="#" class="logo">
+            <span class="logo-icon">⛽</span>
+            <span>Gasol<span class="logo-green">Ex</span></span>
+        </a>
+
+        <nav class="navigation">
+            <a href="#buscar">Buscar</a>
+            <a href="#resultados">Gasolineras</a>
+            <a href="#mapa-section">Mapa</a>
+        </nav>
+
+    </div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="container hero-content">
+
+            <span class="hero-tag">AHORRA EN CADA REPOSTAJE</span>
+
+            <h1>Encuentra el combustible más barato cerca de ti.</h1>
+
+            <p>
+                Compara precios de gasolineras, encuentra la mejor opción
+                y llega hasta ella fácilmente.
+            </p>
+
+            <a href="#buscar" class="hero-button">
+                Buscar gasolineras
+            </a>
+
+        </div>
+    </section>
+
+    <section class="search-section" id="buscar">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="section-tag">BUSCADOR</span>
+                <h2>Encuentra tu mejor precio</h2>
+                <p>Busca por ubicación y selecciona tu combustible.</p>
+            </div>
+
+            <form id="searchForm" class="search-form">
+
+                <div class="form-group">
+                    <label for="ciudad">Ciudad o dirección</label>
+                    <input
+                        type="text"
+                        id="ciudad"
+                        placeholder="Ej. Cáceres, Badajoz..."
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="combustible">Combustible</label>
+
+                    <select id="combustible">
+                        <option value="Gasolina 95">Gasolina 95</option>
+                        <option value="Gasolina 98">Gasolina 98</option>
+                        <option value="Gasóleo A">Gasóleo A</option>
+                        <option value="Gasóleo Premium">Gasóleo Premium</option>
+                        <option value="GLP">GLP</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="radioKm">Distancia máxima</label>
+
+                    <select id="radioKm">
+                        <option value="5">5 km</option>
+                        <option value="10">10 km</option>
+                        <option value="20" selected>20 km</option>
+                        <option value="30">30 km</option>
+                        <option value="50">50 km</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="search-button">
+                    Buscar precios
+                </button>
+
+            </form>
+
+            <button type="button" id="locationButton" class="location-button">
+                📍 Utilizar mi ubicación actual
+            </button>
+
+            <p id="status" class="status" role="status">
+                Introduce una ciudad o utiliza tu ubicación.
+            </p>
+
+        </div>
+    </section>
+
+    <section class="results-section" id="resultados">
+        <div class="container">
+
+            <div class="results-heading">
+                <div>
+                    <span class="section-tag">RESULTADOS</span>
+                    <h2>Gasolineras cercanas</h2>
+                </div>
+
+                <span id="resultCount" class="result-count">
+                    0 gasolineras
+                </span>
+            </div>
+
+            <div class="price-legend">
+                <span><i class="legend-dot dot-green"></i>Más barato</span>
+                <span><i class="legend-dot dot-orange"></i>Intermedio</span>
+                <span><i class="legend-dot dot-red"></i>Más caro</span>
+            </div>
+
+            <div id="stations" class="stations-list">
+
+                <div class="empty-state">
+                    <span>⛽</span>
+                    <h3>Busca gasolineras</h3>
+                    <p>Los resultados aparecerán aquí.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="map-section" id="mapa-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="section-tag">UBICACIONES</span>
+                <h2>Gasolineras en el mapa</h2>
+                <p>Pulsa sobre un marcador para consultar sus precios.</p>
+            </div>
+
+            <div id="map" class="map"></div>
+
+        </div>
+    </section>
+
+    <section class="info-section">
+        <div class="container info-content">
+
+            <div class="section-heading">
+                <span class="section-tag">GASOLEX</span>
+                <h2>Encuentra. Compara. Ahorra.</h2>
+                <p>Todo lo que necesitas para repostar mejor.</p>
+            </div>
+
+            <div class="info-features">
+
+                <div class="feature">
+                    <span>📍</span>
+                    <h3>Cerca de ti</h3>
+                    <p>Encuentra estaciones mediante tu ubicación.</p>
+                </div>
+
+                <div class="feature">
+                    <span>💶</span>
+                    <h3>Compara precios</h3>
+                    <p>Ordena las gasolineras por precio.</p>
+                </div>
+
+                <div class="feature">
+                    <span>🗺️</span>
+                    <h3>Llega fácilmente</h3>
+                    <p>Abre la ruta de la estación en Google Maps.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+
+        <a href="#" class="logo footer-logo">
+            ⛽ Gasol<span class="logo-green">Ex</span>
+        </a>
+
+        <p class="data-source">
+            Fuente: Gasolina hoy (preciosgasolina.es), con datos del
+            Ministerio para la Transición Ecológica y el Reto Demográfico.
+        </p>
+
+        <p class="copyright">
+            © 2026 GasolEx. Encuentra. Compara. Ahorra.
+        </p>
+
+    </div>
+</footer>
+
+
+<!-- VENTANA DE INFORMACIÓN DE GASOLINERA -->
+
+<div id="stationModal" class="station-modal" aria-hidden="true">
+
+    <div class="station-modal-content">
+
+        <button
+            id="closeStationModal"
+            class="modal-close"
+            aria-label="Cerrar">
+            &times;
+        </button>
+
+        <div id="stationDetails"></div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
